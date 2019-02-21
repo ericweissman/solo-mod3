@@ -8,33 +8,36 @@ const fbURL = `https://cors-anywhere.herokuapp.com/https://tastedive.com/api/sim
 const tURL = `https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?q=baauer&k=330926-musicly-0PJ7J0DT&type=band&verbose=1&info=1&limit=25https://cors-anywhere.herokuapp.com/`
 
 class ArtistArea extends Component {
-  componentDidMount() {
+  
+  getArtists = () => {
     switch (this.props.match.path) {
       case '/glitchHop':
         if (this.props.glitchHop.length === 0) {
           this.props.fetchArtists(ghURL, actions.getGlitchHopSuccess)
         }
-        break;
+        return 'glitchHop'
       case '/deepHouse':
         if (this.props.deepHouse.length === 0) {
           this.props.fetchArtists(dhURL, actions.getDeepHouseSuccess)
         }
-        break;
+        return 'deepHouse'
       case '/trap':
         if (this.props.trap.length === 0) {
           this.props.fetchArtists(tURL, actions.getTrapSuccess)
         }
-        break;
+        return 'trap'
       case '/futureBass':
         if (this.props.futureBass.length === 0) {
           this.props.fetchArtists(fbURL, actions.getFutureBassSuccess)
         }
-        break;
+        return 'futureBass'
       default:
         return null
     }
   }
+
   render() {
+    this.getArtists()
     return (
       <div>
         card area
