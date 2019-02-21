@@ -8,9 +8,9 @@ describe('action', () => {
   it('should return isLoading with a bool', () => {
     const expected = {
       type: 'IS_LOADING',
-      bool
+      isLoading: true
     }
-    const result = actions.isLoading(bool)
+    const result = actions.isLoading(true)
     expect(result).toEqual(expected)
   })
 
