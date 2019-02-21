@@ -8,8 +8,8 @@ export const hasErrored = (error) => ({
   error
 })
 
-export const fetchDataSuccess = (artists) => ({
-  type: 'FETCH_DATA_SUCCESS',
+export const fetchArtistsSuccess = (artists) => ({
+  type: 'FETCH_ARTISTS_SUCCESS',
   artists
 })
 

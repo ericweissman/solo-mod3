@@ -1,6 +1,6 @@
 const glitchHopReducer = (state = [], action) => {
   switch (action.type) {
-    case 'FETCH_DATA_SUCCESS':
+    case 'FETCH_ARTISTS_SUCCESS':
       return action.artists
     // case 'GET_GLITCH_HOP':
     //   return action.artists

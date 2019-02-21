@@ -7,10 +7,10 @@ describe('futureBassReducer', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should set state with artists if the type is FETCH_DATA_SUCCESS', () => {
+  it('should set state with artists if the type is FETCH_ARTISTS_SUCCESS', () => {
     const expected = [{name: 'test artist'}]
     const result = futureBassReducer(undefined, {
-      type: 'FETCH_DATA_SUCCESS',
+      type: 'FETCH_ARTISTS_SUCCESS',
       artists: [{name: 'test artist'}]
     })
     expect(result).toEqual(expected)

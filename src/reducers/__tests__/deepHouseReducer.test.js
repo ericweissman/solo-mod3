@@ -7,10 +7,10 @@ describe('deepHouseReducer', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should return artists if the type is FETCH_DATA_SUCCESS', () => {
+  it('should return artists if the type is FETCH_ARTISTS_SUCCESS', () => {
     const expected = [{name: 'Test artist'}]
     const result = deepHouseReducer(undefined, {
-      type: 'FETCH_DATA_SUCCESS',
+      type: 'FETCH_ARTISTS_SUCCESS',
       artists: [{name: 'Test artist'}]
     })
     expect(result).toEqual(expected)
