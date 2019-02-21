@@ -7,12 +7,20 @@ describe('glitchHopReducer', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should set state with artists if the type is GET_FUTURE_BASS', () => {
+  it('should set state with artists if the type is FETCH_DATA_SUCCESS', () => {
     const expected = [{ name: 'test artist' }]
     const result = glitchHopReducer(undefined, {
-      type: 'GET_GLITCH_HOP',
+      type: 'FETCH_DATA_SUCCESS',
       artists: [{ name: 'test artist' }]
     })
     expect(result).toEqual(expected)
   })
+  // it('should set state with artists if the type is GET_FUTURE_BASS', () => {
+  //   const expected = [{ name: 'test artist' }]
+  //   const result = glitchHopReducer(undefined, {
+  //     type: 'GET_GLITCH_HOP',
+  //     artists: [{ name: 'test artist' }]
+  //   })
+  //   expect(result).toEqual(expected)
+  // })
 })
