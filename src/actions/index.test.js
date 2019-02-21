@@ -23,40 +23,40 @@ describe('action', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should return getDeepHouse with artists', () => {
+  it('should return getDeepHouseSuccess with artists', () => {
 
     const expected = {
-      type: 'GET_DEEP_HOUSE',
+      type: 'GET_DEEP_HOUSE_SUCCESS',
       artists
     }
-    const result = actions.getDeepHouse(artists)
+    const result = actions.getDeepHouseSuccess(artists)
     expect(result).toEqual(expected)
   })
 
-  it('should return getFutureBass with artists', () => {
+  it('should return getFutureBassSuccess with artists', () => {
     const expected = {
-      type: 'GET_FUTURE_BASS',
+      type: 'GET_FUTURE_BASS_SUCCESS',
       artists
     }
-    const result = actions.getFutureBass(artists)
+    const result = actions.getFutureBassSuccess(artists)
     expect(result).toEqual(expected)
   })
 
-  it('should return getGlitchHop with artists', () => {
+  it('should return getGlitchHopSuccess with artists', () => {
     const expected = {
-      type: 'GET_GLITCH_HOP',
+      type: 'GET_GLITCH_HOP_SUCCESS',
       artists
     }
-    const result = actions.getGlitchHop(artists)
+    const result = actions.getGlitchHopSuccess(artists)
     expect(result).toEqual(expected)
   })
 
-  it('should return trap with artists', () => {
+  it('should return trapSuccess with artists', () => {
     const expected = {
-      type: 'GET_TRAP',
+      type: 'GET_TRAP_SUCCESS',
       artists
     }
-    const result = actions.getTrap(artists)
+    const result = actions.getTrapSuccess(artists)
     expect(result).toEqual(expected)
   })
 })

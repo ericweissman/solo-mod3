@@ -1,6 +1,6 @@
 const glitchHopReducer = (state = [], action) => {
   switch (action.type) {
-    case 'FETCH_ARTISTS_SUCCESS':
+    case 'GET_GLITCH_HOP_SUCCESS':
       const artists = action.artists.Similar.Results.map((artist) => {
         return {
           name: artist.Name,
@@ -9,8 +9,6 @@ const glitchHopReducer = (state = [], action) => {
         }
       })
       return artists
-    // case 'GET_GLITCH_HOP':
-    //   return action.artists
     default:
       return state
   }

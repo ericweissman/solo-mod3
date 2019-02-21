@@ -1,6 +1,6 @@
 const trapReducer = (state = [], action) => {
   switch (action.type) {
-    case 'FETCH_ARTISTS_SUCCESS':
+    case 'GET_TRAP_SUCCESS':
       const artists = action.artists.Similar.Results.map((artist) => {
         return {
           name: artist.Name,
@@ -9,8 +9,6 @@ const trapReducer = (state = [], action) => {
         }
       })
       return artists
-    // case 'GET_TRAP':
-    //   return action.artists
     default:
       return state
   }

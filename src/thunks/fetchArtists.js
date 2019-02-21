@@ -1,6 +1,6 @@
-import {isLoading, hasErrored, fetchArtistsSuccess} from '../actions'
+import {isLoading, hasErrored } from '../actions'
 
-export const fetchArtists = (url) => {
+export const fetchArtists = (url, actionToDispatch) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
@@ -10,7 +10,7 @@ export const fetchArtists = (url) => {
       }
       dispatch(isLoading(false))
       const result = await response.json()
-      dispatch(fetchArtistsSuccess(result))
+      dispatch(actionToDispatch(result))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

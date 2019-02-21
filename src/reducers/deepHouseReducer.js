@@ -1,8 +1,6 @@
 const deepHouseReducer = (state = [], action) => {
   switch (action.type) {
-    // case 'GET_DEEP_HOUSE':
-    //   return action.artists
-    case 'FETCH_ARTISTS_SUCCESS':
+    case 'GET_DEEP_HOUSE_SUCCESS':
       const artists = action.artists.Similar.Results.map((artist) => {
         return {
           name: artist.Name,
