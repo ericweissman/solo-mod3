@@ -4,7 +4,8 @@ import { fetchArtists } from '../../thunks/fetchArtists'
 import { connect } from 'react-redux'
 import Card from '../../components/Card/Card'
 import * as url from '../../utils/urls'
-const keys = require('short-id')
+import Loading from '../../components/Loading/Loading'
+const key = require('short-id')
 
 class ArtistArea extends Component {
 
@@ -38,8 +39,12 @@ class ArtistArea extends Component {
   cardsToDisplay = () => {
     const genre = this.getArtists()
     const cards = this.props[genre].map(artist => {
-      return <Card {...artist} key={keys.generate()} />
+      return <Card {...artist} key={key.generate()} />
     })
+    const {isLoading} = this.props
+    if (isLoading) {
+      return <Loading />
+    }
     return cards
   }
 
@@ -56,7 +61,8 @@ export const mapStateToProps = (state) => ({
   glitchHop: state.glitchHop,
   trap: state.trap,
   deepHouse: state.deepHouse,
-  futureBass: state.futureBass
+  futureBass: state.futureBass,
+  isLoading: state.isLoading
 })
 
 export const mapDispatchToProps = (dispatch) => ({
