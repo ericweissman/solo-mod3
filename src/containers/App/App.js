@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import '../../styles/index.scss'
-import * as actions from '../../actions/index.js'
+import {populateFavorites} from '../../actions'
 import { fetchArtists } from '../../thunks/fetchArtists'
 import Instructions from '../../components/Instructions/Instructions'
 import NotFound from '../../components/NotFound/NotFound'
@@ -12,7 +12,11 @@ import Nav from '../Nav/Nav'
 import ArtistArea from '../ArtistArea/ArtistArea'
 
 class App extends Component {
-
+  
+  componentDidMount() {
+    const favorites = JSON.parse(localStorage.getItem('favorites'))
+    this.props.populateFavorites(favorites)
+  }
   render() {
     const { hasErrored } = this.props
     switch (hasErrored) {
@@ -26,6 +30,7 @@ class App extends Component {
               <Route path='/deepHouse' render={({ match }) => <ArtistArea match={match} />} />
               <Route path='/futureBass' render={({ match }) => <ArtistArea match={match} />} />
               <Route path='/trap' render={({ match }) => <ArtistArea match={match} />} />
+              <Route path='/favorites' render={({ match }) => <ArtistArea match={match} />} />
               <Route component={NotFound} />
             </Switch>
           </div>
@@ -48,6 +53,7 @@ class App extends Component {
 
   export const mapDispatchToProps = (dispatch) => ({
     fetchArtists: (url, actionToDispatch) => dispatch(fetchArtists(url, actionToDispatch)),
+    populateFavorites: (artists) => dispatch(populateFavorites(artists))
   })
 
 

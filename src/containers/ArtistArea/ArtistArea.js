@@ -31,6 +31,8 @@ class ArtistArea extends Component {
           this.props.fetchArtists(url.futureBass, actions.getFutureBassSuccess)
         }
         return 'futureBass'
+      case '/favorites':
+        return 'favorites'
       default:
         return null
     }
@@ -39,7 +41,7 @@ class ArtistArea extends Component {
   cardsToDisplay = () => {
     const genre = this.getArtists()
     const cards = this.props[genre].map(artist => {
-      return <Card {...artist} key={key.generate()} />
+      return <Card artist={artist} key={key.generate()} />
     })
     const {isLoading} = this.props
     if (isLoading) {
@@ -62,7 +64,8 @@ export const mapStateToProps = (state) => ({
   trap: state.trap,
   deepHouse: state.deepHouse,
   futureBass: state.futureBass,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  favorites: state.favorites,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
