@@ -34,3 +34,18 @@ export const getTrapSuccess = (artists) => ({
   artists
 })
 
+export const addToFavorites = (artist) => ({
+  type: "ADD_TO_FAVORITES",
+  artist
+})
+
+export const removeFromFavorites = (id) => ({
+  type: "REMOVE_FROM_FAVORITES",
+  id
+})
+
+export const populateFavorites = (artists) => ({
+  type: 'POPULATE_FAVORITES',
+  artists
+})
+
