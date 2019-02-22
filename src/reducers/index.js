@@ -5,6 +5,7 @@ import deepHouseReducer from './deepHouseReducer'
 import glitchHopReducer from './glitchHopReducer'
 import futureBassReducer from './futureBassReducer'
 import trapReducer from './trapReducer'
+import favoritesReducer from './favoritesReducer'
 
 const rootReducer = combineReducers({
   isLoading: isLoadingReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   deepHouse: deepHouseReducer,
   glitchHop: glitchHopReducer,
   futureBass: futureBassReducer,
-  trap: trapReducer
+  trap: trapReducer,
+  favorites: favoritesReducer,
 })
 
 export default rootReducer

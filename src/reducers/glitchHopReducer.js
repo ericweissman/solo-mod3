@@ -5,7 +5,8 @@ const glitchHopReducer = (state = [], action) => {
         return {
           name: artist.Name,
           wiki: artist.wUrl,
-          video: artist.yID
+          id: artist.yID,
+          favorited: false,
         }
       })
       return artists
