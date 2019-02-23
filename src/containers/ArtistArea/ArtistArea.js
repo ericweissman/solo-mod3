@@ -10,24 +10,26 @@ const key = require('short-id')
 class ArtistArea extends Component {
 
   getArtists = () => {
+    const { glitchHop, futureBass, trap, deepHouse } = this.props
+
     switch (this.props.match.path) {
       case '/glitchHop':
-        if (this.props.glitchHop.length === 0) {
+        if (glitchHop.length === 0) {
           this.props.fetchArtists(url.glitchHop, actions.getGlitchHopSuccess)
         }
         return 'glitchHop'
       case '/deepHouse':
-        if (this.props.deepHouse.length === 0) {
+        if (deepHouse.length === 0) {
           this.props.fetchArtists(url.deepHouse, actions.getDeepHouseSuccess)
         }
         return 'deepHouse'
       case '/trap':
-        if (this.props.trap.length === 0) {
+        if (trap.length === 0) {
           this.props.fetchArtists(url.trap, actions.getTrapSuccess)
         }
         return 'trap'
       case '/futureBass':
-        if (this.props.futureBass.length === 0) {
+        if (futureBass.length === 0) {
           this.props.fetchArtists(url.futureBass, actions.getFutureBassSuccess)
         }
         return 'futureBass'
@@ -39,12 +41,26 @@ class ArtistArea extends Component {
   }
 
   cardsToDisplay = () => {
+    const { glitchHop, futureBass, trap, deepHouse, favorites } = this.props
     const genre = this.getArtists()
-    const cards = this.props[genre].map(artist => {
+    const allGenres = glitchHop.concat(deepHouse).concat(trap).concat(futureBass)
+    let cards
+    if (genre === 'favorites') {
+      cards = allGenres.map((artist) => {
+        if (favorites.includes(artist.id)) {
+          return <Card artist={artist} key={key.generate()} />
+        }
+      })
+    } else {
+      cards = this.props[genre].map(artist => {
+        if (this.props.favorites.includes(artist.id)) {
+          artist.favorited = true
+        }
+        return <Card artist={artist} key={key.generate()} />
+      })
+    }
 
-      return <Card artist={artist} key={key.generate()} />
-    })
-    const {isLoading} = this.props
+    const { isLoading } = this.props
     if (isLoading) {
       return <Loading />
     }
