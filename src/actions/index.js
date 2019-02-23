@@ -39,9 +39,9 @@ export const addToFavorites = (artist) => ({
   artist
 })
 
-export const removeFromFavorites = (id) => ({
+export const removeFromFavorites = (artist) => ({
   type: "REMOVE_FROM_FAVORITES",
-  id
+  artist
 })
 
 export const populateFavorites = (artists) => ({

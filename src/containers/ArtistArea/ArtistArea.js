@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import * as actions from '../../actions'
 import { fetchArtists } from '../../thunks/fetchArtists'
 import { connect } from 'react-redux'
-import Card from '../../components/Card/Card'
+import Card from '../../containers/Card/Card'
 import * as url from '../../utils/urls'
 import Loading from '../../components/Loading/Loading'
 const key = require('short-id')
@@ -41,6 +41,7 @@ class ArtistArea extends Component {
   cardsToDisplay = () => {
     const genre = this.getArtists()
     const cards = this.props[genre].map(artist => {
+
       return <Card artist={artist} key={key.generate()} />
     })
     const {isLoading} = this.props

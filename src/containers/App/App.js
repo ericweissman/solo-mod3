@@ -15,7 +15,9 @@ class App extends Component {
   
   componentDidMount() {
     const favorites = JSON.parse(localStorage.getItem('favorites'))
-    this.props.populateFavorites(favorites)
+    if (favorites !== null) {
+      this.props.populateFavorites(favorites)
+    }
   }
   render() {
     const { hasErrored } = this.props

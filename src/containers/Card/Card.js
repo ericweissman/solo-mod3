@@ -1,31 +1,26 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import YouTube from 'react-youtube';
 import { connect } from 'react-redux'
 import { addToFavorites, removeFromFavorites } from '../../actions'
 
 class Card extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      favorited: false,
-    }
-  }
-  handleFavorite = (e) => {
-    const { name, id, wiki } = this.props.artist
-    const { favorited } = this.state
+
+
+  handleFavorite =  (e) => {
+    const { artist, favorites } = this.props
+    const { favorited } = this.props.artist
     e.preventDefault();
     if (!favorited) {
-      this.props.addToFavorites({name, id, wiki})
-    } else {
-      this.props.removeFromFavorites(id)
+       this.props.addToFavorites(artist)
+    } else if (favorited) {
+       this.props.removeFromFavorites(artist)
     }
-    this.setState({
-      favorited: !this.state.favorited,
-    }, () => localStorage.setItem('favorites', JSON.stringify(this.props.favorites)) )
+    localStorage.setItem('favorites', JSON.stringify(favorites))
   }
-  
+
+
   render() {
-    const { name, id, wiki } = this.props.artist
+    const { name, id, wiki, favorited } = this.props.artist
     return (
       <div>
         <h4>{name}</h4>
@@ -34,7 +29,11 @@ class Card extends Component {
           title={name}
         />
         <a href={wiki} target='blank'>More Info</a>
-        <button onClick={this.handleFavorite}>Add to favorites</button>
+        {
+          favorited ?
+            <button onClick={this.handleFavorite}>Delete from favorites</button> :
+            <button onClick={this.handleFavorite}>Add to Favorites</button>
+        }
       </div>
     )
   }
@@ -46,7 +45,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   addToFavorites: (artist) => dispatch(addToFavorites(artist)),
-  removeFromFavorites: (id) => dispatch(removeFromFavorites(id))
+  removeFromFavorites: (artist) => dispatch(removeFromFavorites(artist))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)
