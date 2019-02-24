@@ -13,14 +13,14 @@ const trapReducer = (state = [], action) => {
     case 'ADD_TO_FAVORITES':
       return state.map((artist) => {
         if (artist.id === action.artist.id) {
-          action.artist.favorited = !action.artist.favorited
+          artist.favorited = !artist.favorited
         }
         return artist
       })
     case 'REMOVE_FROM_FAVORITES':
       return state.map((artist) => {
         if (artist.id === action.artist.id) {
-          action.artist.favorited = !action.artist.favorited
+          artist.favorited = !artist.favorited
         }
         return artist
       })
