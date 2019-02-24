@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the correct snapshot 1`] = `
+<div>
+  <h4>
+    PL
+  </h4>
+  <YouTube
+    className={null}
+    containerClassName=""
+    id={null}
+    onEnd={[Function]}
+    onError={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaybackQualityChange={[Function]}
+    onPlaybackRateChange={[Function]}
+    onReady={[Function]}
+    onStateChange={[Function]}
+    opts={Object {}}
+    title="PL"
+    videoId="abc123"
+  />
+  <a
+    href="somelink"
+    target="blank"
+  >
+    More Info
+  </a>
+  <button
+    onClick={[Function]}
+  >
+    Add to Favorites
+  </button>
+</div>
+`;
+
+exports[`Card should match the correct snapshot if the artist has been favorited 1`] = `
+<div>
+  <h4>
+    PL
+  </h4>
+  <YouTube
+    className={null}
+    containerClassName=""
+    id={null}
+    onEnd={[Function]}
+    onError={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaybackQualityChange={[Function]}
+    onPlaybackRateChange={[Function]}
+    onReady={[Function]}
+    onStateChange={[Function]}
+    opts={Object {}}
+    title="PL"
+    videoId="abc123"
+  />
+  <a
+    href="somelink"
+    target="blank"
+  >
+    More Info
+  </a>
+  <button
+    onClick={[Function]}
+  >
+    Delete from favorites
+  </button>
+</div>
+`;

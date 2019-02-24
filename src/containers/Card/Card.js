@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 import { connect } from 'react-redux'
 import { addToFavorites, removeFromFavorites } from '../../actions'
 
-class Card extends Component {
+export class Card extends Component {
   handleFavorite = (e) => {
     const { artist, favorites } = this.props
     const { favorited } = this.props.artist
