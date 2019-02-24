@@ -7,11 +7,10 @@ import * as url from '../../utils/urls'
 import Loading from '../../components/Loading/Loading'
 const key = require('short-id')
 
-class ArtistArea extends Component {
+export class ArtistArea extends Component {
 
   getArtists = () => {
     const { glitchHop, futureBass, trap, deepHouse } = this.props
-
     switch (this.props.match.path) {
       case '/glitchHop':
         if (glitchHop.length === 0) {
@@ -34,14 +33,31 @@ class ArtistArea extends Component {
         }
         return 'futureBass'
       case '/favorites':
+        this.fetchAllArtists()
         return 'favorites'
       default:
         return null
     }
   }
 
+  fetchAllArtists = () => {
+    const { glitchHop, futureBass, trap, deepHouse } = this.props
+    if (glitchHop.length === 0) {
+      this.props.fetchArtists(url.glitchHop, actions.getGlitchHopSuccess)
+    }
+    if (deepHouse.length === 0) {
+      this.props.fetchArtists(url.deepHouse, actions.getDeepHouseSuccess)
+    }
+    if (trap.length === 0) {
+      this.props.fetchArtists(url.trap, actions.getTrapSuccess)
+    }
+    if (futureBass.length === 0) {
+      this.props.fetchArtists(url.futureBass, actions.getFutureBassSuccess)
+    }
+  }
+
   cardsToDisplay = () => {
-    const { glitchHop, futureBass, trap, deepHouse, favorites } = this.props
+    const { glitchHop, futureBass, trap, deepHouse, favorites, isLoading } = this.props
     const genre = this.getArtists()
     const allGenres = glitchHop.concat(deepHouse).concat(trap).concat(futureBass)
     let cards
@@ -59,8 +75,6 @@ class ArtistArea extends Component {
         return <Card artist={artist} key={key.generate()} />
       })
     }
-
-    const { isLoading } = this.props
     if (isLoading) {
       return <Loading />
     }

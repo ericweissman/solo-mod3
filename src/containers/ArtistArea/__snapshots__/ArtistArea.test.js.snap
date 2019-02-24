@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistArea snapshots should match the correct snapshot 1`] = `
+<div>
+  <Connect(Card)
+    artist={
+      Object {
+        "favorited": true,
+        "id": "1234",
+        "name": "test",
+        "wiki": "asfas",
+      }
+    }
+    key="02f6d4"
+  />
+</div>
+`;
+
+exports[`ArtistArea snapshots should match the correct snapshot 2`] = `
+<div>
+  <Connect(Card)
+    artist={
+      Object {
+        "favorited": false,
+        "id": "33",
+        "name": "test",
+        "wiki": "asfas",
+      }
+    }
+    key="786dfc"
+  />
+</div>
+`;
+
+exports[`ArtistArea snapshots should match the correct snapshot 3`] = `
+<div>
+  <Connect(Card)
+    artist={
+      Object {
+        "favorited": false,
+        "id": "44",
+        "name": "test",
+        "wiki": "asfas",
+      }
+    }
+    key="bcc274"
+  />
+</div>
+`;
+
+exports[`ArtistArea snapshots should match the correct snapshot 4`] = `
+<div>
+  <Connect(Card)
+    artist={
+      Object {
+        "favorited": false,
+        "id": "22",
+        "name": "test",
+        "wiki": "asfas",
+      }
+    }
+    key="f31661"
+  />
+</div>
+`;
+
+exports[`ArtistArea snapshots should match the correct snapshot 5`] = `
+<div>
+  <Connect(Card)
+    artist={
+      Object {
+        "favorited": false,
+        "id": "1234",
+        "name": "test",
+        "wiki": "asfas",
+      }
+    }
+    key="024b5f"
+  />
+</div>
+`;
