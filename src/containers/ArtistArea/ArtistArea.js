@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Card from '../../containers/Card/Card'
 import * as url from '../../utils/urls'
 import Loading from '../../components/Loading/Loading'
+import FavoritesInstructions from '../../components/FavoritesInstructions/FavoritesInstructions'
 const key = require('short-id')
 
 export class ArtistArea extends Component {
@@ -77,6 +78,9 @@ export class ArtistArea extends Component {
     }
     if (isLoading) {
       return <Loading />
+    }
+    if (favorites.length === 0) {
+      return <FavoritesInstructions />
     }
     return cards
   }
