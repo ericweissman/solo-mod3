@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match the correct snapshot 1`] = `
+<nav>
+  <h1>
+    AARPlur
+  </h1>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/"
+  >
+     Instructions 
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/glitchHop"
+  >
+     Glitch Hop 
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/futureBass"
+  >
+     Future Bass 
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/deepHouse"
+  >
+     Deep House 
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/trap"
+  >
+     Trap 
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/favorites"
+  >
+     Favorites 
+  </NavLink>
+</nav>
+`;

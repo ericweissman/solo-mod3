@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => {
   return (
     <nav>
-      <h1>AARPlurnt</h1>
+      <h1>AARPlur</h1>
       <NavLink to='/'> Instructions </NavLink>
       <NavLink to='/glitchHop'> Glitch Hop </NavLink>
       <NavLink to='/futureBass'> Future Bass </NavLink>
