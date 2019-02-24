@@ -4,6 +4,7 @@ describe('action', () => {
   const bool = true
   const artists = [{ Name: 'Zhu', wURL: 'https://en.wikipedia', yID: 'asASG121s' }]
   const error = 'Some error'
+  const artist = { Name: 'Zhu', wiki: 'https://en.wikipedia', id: 'asASG121s', favorited: false }
 
   it('should return isLoading with a bool', () => {
     const expected = {
@@ -57,6 +58,33 @@ describe('action', () => {
       artists
     }
     const result = actions.getTrapSuccess(artists)
+    expect(result).toEqual(expected)
+  })
+
+  it('should return addToFavorites with artist', () => {
+    const expected = {
+      type: 'ADD_TO_FAVORITES',
+      artist
+    }
+    const result = actions.addToFavorites(artist)
+    expect(result).toEqual(expected)
+  })
+
+  it('should return removeFromFavorites with artist', () => {
+    const expected = {
+      type: "REMOVE_FROM_FAVORITES",
+      artist
+    }
+    const result = actions.removeFromFavorites(artist)
+    expect(result).toEqual(expected)
+  })
+
+  it('should return populateFavorites with artists', () => {
+    const expected = {
+      type: 'POPULATE_FAVORITES',
+      artists
+    }
+    const result = actions.populateFavorites(artists)
     expect(result).toEqual(expected)
   })
 })
