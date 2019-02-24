@@ -62,26 +62,29 @@ export class ArtistArea extends Component {
     const genre = this.getArtists()
     const allGenres = glitchHop.concat(deepHouse).concat(trap).concat(futureBass)
     let cards
-    if (genre === 'favorites') {
-      cards = allGenres.map((artist) => {
-        if (favorites.includes(artist.id)) {
-          return <Card artist={artist} key={key.generate()} />
-        }
-      })
-    } else {
-      cards = this.props[genre].map(artist => {
-        if (this.props.favorites.includes(artist.id)) {
-          artist.favorited = true
-        }
-        return <Card artist={artist} key={key.generate()} />
-      })
-    }
+
     if (isLoading) {
       return <Loading />
     }
-    if (favorites.length === 0) {
-      return <FavoritesInstructions />
+
+    switch (genre === 'favorites') {
+      case favorites.length === 0:
+        return <FavoritesInstructions />
+      default:
+        cards = allGenres.map((artist) => {
+          if (favorites.includes(artist.id)) {
+            return <Card artist={artist} key={key.generate()} />
+          }
+        })
     }
+
+    cards = this.props[genre].map(artist => {
+      if (this.props.favorites.includes(artist.id)) {
+        artist.favorited = true
+      }
+      return <Card artist={artist} key={key.generate()} />
+    })
+    
     return cards
   }
 

@@ -2,80 +2,33 @@
 
 exports[`ArtistArea snapshots should match the correct snapshot 1`] = `
 <div>
-  <Connect(Card)
-    artist={
-      Object {
-        "favorited": true,
-        "id": "1234",
-        "name": "test",
-        "wiki": "asfas",
-      }
-    }
-    key="02f6d4"
-  />
+  <FavoritesInstructions />
 </div>
 `;
 
 exports[`ArtistArea snapshots should match the correct snapshot 2`] = `
 <div>
-  <Connect(Card)
-    artist={
-      Object {
-        "favorited": false,
-        "id": "33",
-        "name": "test",
-        "wiki": "asfas",
-      }
-    }
-    key="786dfc"
-  />
+  <FavoritesInstructions />
 </div>
 `;
 
 exports[`ArtistArea snapshots should match the correct snapshot 3`] = `
 <div>
-  <Connect(Card)
-    artist={
-      Object {
-        "favorited": false,
-        "id": "44",
-        "name": "test",
-        "wiki": "asfas",
-      }
-    }
-    key="bcc274"
-  />
+  <FavoritesInstructions />
 </div>
 `;
 
 exports[`ArtistArea snapshots should match the correct snapshot 4`] = `
 <div>
-  <Connect(Card)
-    artist={
-      Object {
-        "favorited": false,
-        "id": "22",
-        "name": "test",
-        "wiki": "asfas",
-      }
-    }
-    key="f31661"
-  />
+  <FavoritesInstructions />
 </div>
 `;
 
 exports[`ArtistArea snapshots should match the correct snapshot 5`] = `
 <div>
   <Connect(Card)
-    artist={
-      Object {
-        "favorited": false,
-        "id": "1234",
-        "name": "test",
-        "wiki": "asfas",
-      }
-    }
-    key="024b5f"
+    artist="1234"
+    key="1d0d84"
   />
 </div>
 `;

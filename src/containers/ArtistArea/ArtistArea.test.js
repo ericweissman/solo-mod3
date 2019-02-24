@@ -32,14 +32,20 @@ describe('ArtistArea', () => {
     })
   })
 
-  describe('getArtists', () => {
-    let wrapper
-    it('should fetch the correct data if there is no data', () => {
-      wrapper = shallow(<ArtistArea test={test} {...emptyGH} />)
-      wrapper.instance().getArtists()
-      expect(wrapper.prop('test')).toEqual(false)
-    })
-  })
+  // describe('fetchAllArtists', () => {
+  //   wrapper = shallow(<ArtistArea {...emptyGH}/>)
+  //   wrapper.instance().fetchArtists()
+  //   expect(wrapper.props().fetchArtists).toHaveBeenCalled()
+  // })
+
+  // describe('getArtists', () => {
+  //   let wrapper
+  //   it('should fetch the correct data if there is no data', () => {
+  //     wrapper = shallow(<ArtistArea test={test} {...emptyGH} />)
+  //     wrapper.instance().getArtists()
+  //     expect(wrapper.prop('test')).toEqual(false)
+  //   })
+  // })
 
   describe('mapStateToProps', () => {
     it('should return an object with the correct properties', () => {
