@@ -1,0 +1,63 @@
+nav {
+  background-color: $color-main;
+  font-family: $primary-font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    padding: 25px;
+    font-size: 50px;
+    color: $color-accent;
+  }
+
+  .nav-options {
+    
+    .instructions-nav {
+      animation: pulse 2s linear 0s infinite normal; 
+      animation-fill-mode: forwards;
+      border-bottom: none;
+      margin-bottom: 20px;
+      &:hover {
+
+      }
+    }
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+    color: $color-accent-light;
+    width: 185px;
+    font-size: 30px;
+    padding: 10px 0;
+    border-bottom: 2px solid $color-main-dark;
+    text-decoration: none;
+    text-align: center;
+
+    }
+    a:nth-child(2) {
+        border-top: 2px solid $color-main-dark;
+      }
+
+    a:nth-child(n+2) {
+      &:hover {
+        background-color: $color-accent-light;
+        color: $color-main;
+        transition: .15s ease-in;
+        border: 1px solid transparent;
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1.0)
+    }
+    50% {
+      transform: scale(1.06)
+    }
+    100% {
+      transform: scale(1.0)
+    }
+  }
+}
