@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshots should have the correct snapshot when there is an error 1`] = `
+<Error
+  message={true}
+/>
+`;
+
+exports[`App snapshots should have the correct snapshot when there is no error 1`] = `
+<Error
+  message={false}
+/>
+`;

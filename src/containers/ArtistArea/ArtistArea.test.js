@@ -1,10 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import {fetchArtists} from '../../thunks/fetchArtists'
+import { fetchArtists } from '../../thunks/fetchArtists'
 import * as actions from '../../actions'
 import * as url from '../../utils/urls'
-import {mockPropsFetchedWithFaves, glitchHop, deepHouse, futureBass, trap, favorites, emptyGH } from '../ArtistArea/mockData'
+import { mockPropsFetchedWithFaves, glitchHop, deepHouse, futureBass, trap, favorites, emptyGH } from '../ArtistArea/mockData'
 import { ArtistArea, mapDispatchToProps, mapStateToProps } from '../ArtistArea/ArtistArea'
+
+jest.mock('../../thunks/fetchArtists')
 
 describe('ArtistArea', () => {
   let wrapper
@@ -74,7 +76,7 @@ describe('ArtistArea', () => {
 
   describe('mapDispatchToProps', () => {
     it('calls dispatch with the correct action when there has not been a fetch', () => {
-      wrapper = shallow(<ArtistArea {...emptyGH} />)
+      // wrapper = shallow(<ArtistArea {...emptyGH} />)
       const mockDispatch = jest.fn()
       const actionToDispatch = fetchArtists(url.glitchHop, actions.getGlitchHopSuccess)
 
@@ -83,5 +85,4 @@ describe('ArtistArea', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
   })
-
 })

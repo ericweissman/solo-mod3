@@ -28,7 +28,7 @@ exports[`ArtistArea snapshots should match the correct snapshot 5`] = `
 <div>
   <Connect(Card)
     artist="1234"
-    key="1d0d84"
+    key="a008f5"
   />
 </div>
 `;

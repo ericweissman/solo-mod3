@@ -7,7 +7,7 @@ import futureBassReducer from './futureBassReducer'
 import trapReducer from './trapReducer'
 import favoritesReducer from './favoritesReducer'
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   isLoading: isLoadingReducer,
   hasErrored: hasErroredReducer,
   deepHouse: deepHouseReducer,

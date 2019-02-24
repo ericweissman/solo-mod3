@@ -4,14 +4,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import '../../styles/index.scss'
 import {populateFavorites} from '../../actions'
-import { fetchArtists } from '../../thunks/fetchArtists'
 import Instructions from '../../components/Instructions/Instructions'
 import NotFound from '../../components/NotFound/NotFound'
 import Error from '../../components/Error/Error'
 import Nav from '../Nav/Nav'
 import ArtistArea from '../ArtistArea/ArtistArea'
 
-class App extends Component {
+export class App extends Component {
   
   componentDidMount() {
     const favorites = JSON.parse(localStorage.getItem('favorites'))
@@ -54,7 +53,6 @@ class App extends Component {
   })
 
   export const mapDispatchToProps = (dispatch) => ({
-    fetchArtists: (url, actionToDispatch) => dispatch(fetchArtists(url, actionToDispatch)),
     populateFavorites: (artists) => dispatch(populateFavorites(artists))
   })
 
