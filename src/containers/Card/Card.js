@@ -4,20 +4,20 @@ import { connect } from 'react-redux'
 import { addToFavorites, removeFromFavorites } from '../../actions'
 
 class Card extends Component {
-
-
-  handleFavorite =  (e) => {
+  handleFavorite = (e) => {
     const { artist, favorites } = this.props
     const { favorited } = this.props.artist
     e.preventDefault();
+    let updatedFavorites
     if (!favorited) {
-       this.props.addToFavorites(artist)
+      this.props.addToFavorites(artist)
+      updatedFavorites = [...favorites, artist.id]
     } else if (favorited) {
-       this.props.removeFromFavorites(artist)
+      this.props.removeFromFavorites(artist)
+      updatedFavorites = favorites.filter(id => id !== artist.id)
     }
-    localStorage.setItem('favorites', JSON.stringify(favorites))
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
   }
-
 
   render() {
     const { name, id, wiki, favorited } = this.props.artist
