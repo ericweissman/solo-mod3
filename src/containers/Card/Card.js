@@ -21,12 +21,19 @@ export class Card extends Component {
 
   render() {
     const { name, id, wiki, favorited } = this.props.artist
+    const opts = {
+      height: '152',
+      width: '270'
+    }
+
     return (
-      <div>
+      <div className='card'>
         <h4>{name}</h4>
         <YouTube
+          className='video'
           videoId={id}
           title={name}
+          opts={opts}
         />
         <a href={wiki} target='blank'>More Info</a>
         {
