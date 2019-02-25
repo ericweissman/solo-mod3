@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card should match the correct snapshot 1`] = `
-<div>
+<div
+  className="card"
+>
   <h4>
     PL
   </h4>
   <YouTube
-    className={null}
+    className="video"
     containerClassName=""
     id={null}
     onEnd={[Function]}
@@ -17,7 +19,12 @@ exports[`Card should match the correct snapshot 1`] = `
     onPlaybackRateChange={[Function]}
     onReady={[Function]}
     onStateChange={[Function]}
-    opts={Object {}}
+    opts={
+      Object {
+        "height": "152",
+        "width": "270",
+      }
+    }
     title="PL"
     videoId="abc123"
   />
@@ -25,23 +32,33 @@ exports[`Card should match the correct snapshot 1`] = `
     href="somelink"
     target="blank"
   >
+     
+    <i
+      class="fas fa-info-circle"
+    />
     More Info
   </a>
   <button
+    className="favorites"
     onClick={[Function]}
   >
+    <i
+      class="fas fa-plus-circle"
+    />
     Add to Favorites
   </button>
 </div>
 `;
 
 exports[`Card should match the correct snapshot if the artist has been favorited 1`] = `
-<div>
+<div
+  className="card"
+>
   <h4>
     PL
   </h4>
   <YouTube
-    className={null}
+    className="video"
     containerClassName=""
     id={null}
     onEnd={[Function]}
@@ -52,7 +69,12 @@ exports[`Card should match the correct snapshot if the artist has been favorited
     onPlaybackRateChange={[Function]}
     onReady={[Function]}
     onStateChange={[Function]}
-    opts={Object {}}
+    opts={
+      Object {
+        "height": "152",
+        "width": "270",
+      }
+    }
     title="PL"
     videoId="abc123"
   />
@@ -60,12 +82,20 @@ exports[`Card should match the correct snapshot if the artist has been favorited
     href="somelink"
     target="blank"
   >
+     
+    <i
+      class="fas fa-info-circle"
+    />
     More Info
   </a>
   <button
+    className="favorites"
     onClick={[Function]}
   >
-    Delete from favorites
+    <i
+      class="fas fa-times-circle"
+    />
+    Remove from Favorites
   </button>
 </div>
 `;

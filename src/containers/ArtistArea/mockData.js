@@ -88,3 +88,43 @@ export const emptyGH = {
   match: { path: '/glitchHop' },
   fetchArtists: jest.fn()
 }
+export const emptyTrap = {
+  glitchHop: [],
+  trap: [],
+  deepHouse: [{ name: 'test', id: '33', wiki: 'asfas', favorited: false }],
+  futureBass: [{ name: 'test', id: '44', wiki: 'asfas', favorited: false }],
+  isLoading: false,
+  favorites: ['1234'],
+  match: { path: '/trap' },
+  fetchArtists: jest.fn()
+}
+export const emptyDH = {
+  glitchHop: [],
+  trap: [],
+  deepHouse: [{ name: 'test', id: '33', wiki: 'asfas', favorited: false }],
+  futureBass: [{ name: 'test', id: '44', wiki: 'asfas', favorited: false }],
+  isLoading: false,
+  favorites: ['1234'],
+  match: { path: '/trap' },
+  fetchArtists: jest.fn()
+}
+export const emptyFB = {
+  glitchHop: [],
+  trap: [],
+  deepHouse: [{ name: 'test', id: '33', wiki: 'asfas', favorited: false }],
+  futureBass: [{ name: 'test', id: '44', wiki: 'asfas', favorited: false }],
+  isLoading: false,
+  favorites: ['1234'],
+  match: { path: '/trap' },
+  fetchArtists: jest.fn()
+}
+export const emptyPath = {
+  glitchHop: [],
+  trap: [],
+  deepHouse: [{ name: 'test', id: '33', wiki: 'asfas', favorited: false }],
+  futureBass: [{ name: 'test', id: '44', wiki: 'asfas', favorited: false }],
+  isLoading: false,
+  favorites: ['1234'],
+  match: { path: '' },
+  fetchArtists: jest.fn()
+}

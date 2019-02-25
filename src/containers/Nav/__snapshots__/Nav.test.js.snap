@@ -5,47 +5,52 @@ exports[`Nav should match the correct snapshot 1`] = `
   <h1>
     AARPlur
   </h1>
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
-    to="/"
+  <div
+    className="nav-options"
   >
-     Instructions 
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
-    to="/glitchHop"
-  >
-     Glitch Hop 
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
-    to="/futureBass"
-  >
-     Future Bass 
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
-    to="/deepHouse"
-  >
-     Deep House 
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
-    to="/trap"
-  >
-     Trap 
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
-    to="/favorites"
-  >
-     Favorites 
-  </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      className="instructions-nav"
+      to="/"
+    >
+       Instructions 
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/glitchHop"
+    >
+       Glitch Hop 
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/futureBass"
+    >
+       Future Bass 
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/deepHouse"
+    >
+       Deep House 
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/trap"
+    >
+       Trap 
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/favorites"
+    >
+       Favorites 
+    </NavLink>
+  </div>
 </nav>
 `;

@@ -3,10 +3,11 @@ import { shallow } from 'enzyme'
 import { fetchArtists } from '../../thunks/fetchArtists'
 import * as actions from '../../actions'
 import * as url from '../../utils/urls'
-import { mockPropsFetchedWithFaves, glitchHop, deepHouse, futureBass, trap, favorites, emptyGH } from '../ArtistArea/mockData'
+import { mockPropsFetchedWithFaves, glitchHop, deepHouse, futureBass, trap, favorites, emptyGH, emptyTrap, emptyDH, emptyFB, emptyPath } from '../ArtistArea/mockData'
 import { ArtistArea, mapDispatchToProps, mapStateToProps } from '../ArtistArea/ArtistArea'
 
 jest.mock('../../thunks/fetchArtists')
+
 
 describe('ArtistArea', () => {
   let wrapper
@@ -34,20 +35,30 @@ describe('ArtistArea', () => {
     })
   })
 
-  // describe('fetchAllArtists', () => {
-  //   wrapper = shallow(<ArtistArea {...emptyGH}/>)
-  //   wrapper.instance().fetchArtists()
-  //   expect(wrapper.props().fetchArtists).toHaveBeenCalled()
-  // })
 
-  // describe('getArtists', () => {
-  //   let wrapper
-  //   it('should fetch the correct data if there is no data', () => {
-  //     wrapper = shallow(<ArtistArea test={test} {...emptyGH} />)
-  //     wrapper.instance().getArtists()
-  //     expect(wrapper.prop('test')).toEqual(false)
-  //   })
-  // })
+  describe('getArtists', () => {
+    let wrapper
+    it('should fetch the correct data if there is a matching path', () => {
+      wrapper = shallow(<ArtistArea {...emptyGH} />)
+      wrapper.instance().getArtists()
+      expect(emptyGH.fetchArtists).toHaveBeenCalled()
+    })
+    it('should fetch the correct data if there is a matching path', () => {
+      wrapper = shallow(<ArtistArea {...emptyTrap} />)
+      wrapper.instance().getArtists()
+      expect(emptyTrap.fetchArtists).toHaveBeenCalled()
+    })
+    it('should fetch the correct data if there is a matching path', () => {
+      wrapper = shallow(<ArtistArea {...emptyDH} />)
+      wrapper.instance().getArtists()
+      expect(emptyDH.fetchArtists).toHaveBeenCalled()
+    })
+    it('should fetch the correct data if there is a matching path', () => {
+      wrapper = shallow(<ArtistArea {...emptyFB} />)
+      wrapper.instance().getArtists()
+      expect(emptyFB.fetchArtists).toHaveBeenCalled()
+    })
+  })
 
   describe('mapStateToProps', () => {
     it('should return an object with the correct properties', () => {
