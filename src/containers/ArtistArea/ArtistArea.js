@@ -68,8 +68,8 @@ export class ArtistArea extends Component {
     }
 
     switch (genre === 'favorites') {
-      case favorites.length === 0:
-        return <FavoritesInstructions />
+      // case favorites.length === 0:
+      //   return <FavoritesInstructions />
       default:
         cards = allGenres.map((artist) => {
           if (favorites.includes(artist.id)) {
@@ -90,7 +90,7 @@ export class ArtistArea extends Component {
 
   render() {
     return (
-      <div>
+      <div class='artist-area'>
         {this.cardsToDisplay()}
       </div>
     )
