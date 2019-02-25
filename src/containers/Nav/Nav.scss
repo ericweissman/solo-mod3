@@ -4,8 +4,11 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
   h1 {
-    padding: 25px;
+    padding: 30px 0;
     font-size: 50px;
     color: $color-accent;
   }
@@ -16,28 +19,28 @@ nav {
       animation: pulse 2s linear 0s infinite normal; 
       animation-fill-mode: forwards;
       border-bottom: none;
-      margin-bottom: 20px;
+      margin-bottom: 35px;
       &:hover {
-
+        color: white;
+        transition: .9s ease-in;
       }
     }
     
     display: flex;
     flex-direction: column;
     align-items: center;
+
     a {
     color: $color-accent-light;
-    width: 185px;
+    width: 205px;
     font-size: 30px;
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 2px solid $color-main-dark;
     text-decoration: none;
     text-align: center;
 
     }
-    a:nth-child(2) {
-        border-top: 2px solid $color-main-dark;
-      }
+
 
     a:nth-child(n+2) {
       &:hover {
@@ -47,6 +50,13 @@ nav {
         border: 1px solid transparent;
       }
     }
+
+    a:nth-child(2) {
+      border-top: 2px solid $color-main-dark;
+      &:hover {
+        border-top: 2px solid transparent;
+      }
+    }
   }
 
   @keyframes pulse {
@@ -54,7 +64,7 @@ nav {
       transform: scale(1.0)
     }
     50% {
-      transform: scale(1.06)
+      transform: scale(1.08)
     }
     100% {
       transform: scale(1.0)
