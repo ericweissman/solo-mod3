@@ -1,11 +1,7 @@
 import trapReducer from '../trapReducer'
 
 describe('futureBassReducer', () => {
-  const mockData = {
-    Similar: {
-      Results: [{ Name: 'PL', wUrl: 'testurl', yID: 'abc123' }]
-    }
-  }
+  const mockData = [{ Name: 'PL', wUrl: 'testurl', yID: 'abc123', favorited: false }]
 
   const mockArtist = { name: 'PL', wiki: 'testurl', id: 'abc123', favorited: false }
 
@@ -34,12 +30,32 @@ describe('futureBassReducer', () => {
     expect(result).toEqual(expected)
   })
 
+  it('should not toggle the favorited property if the type is ADD_TO_FAVORITES and they are not matching ID', () => {
+    const initialState = [{ name: 'PL', wiki: 'testurl', id: 'abc123', favorited: false }]
+    const expected = [{ name: 'PL', wiki: 'testurl', id: 'abc123', favorited: false }]
+    const result = trapReducer(initialState, {
+      type: 'ADD_TO_FAVORITES',
+      artist: { name: 'test', wiki: 'a', id: '3333', favorited: false }
+    })
+    expect(result).toEqual(expected)
+  })
+
   it('should toggle the favorited property if the type is REMOVE_FROM_FAVORITES', () => {
     const initialState = [{ name: 'PL', wiki: 'testurl', id: 'abc123', favorited: true }]
     const expected = [{ name: 'PL', wiki: 'testurl', id: 'abc123', favorited: false }]
     const result = trapReducer(initialState, {
       type: 'REMOVE_FROM_FAVORITES',
       artist: mockArtist
+    })
+    expect(result).toEqual(expected)
+  })
+
+  it('should not toggle the favorited property if the type is REMOVE_FROM_FAVORITES and they are not matching ID', () => {
+    const initialState = [{ name: 'PL', wiki: 'testurl', id: 'abc123', favorited: false }]
+    const expected = [{ name: 'PL', wiki: 'testurl', id: 'abc123', favorited: false }]
+    const result = trapReducer(initialState, {
+      type: 'REMOVE_FROM_FAVORITES',
+      artist: { name: 'test', wiki: 'a', id: '3333', favorited: false }
     })
     expect(result).toEqual(expected)
   })
