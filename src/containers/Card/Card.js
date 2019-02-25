@@ -10,11 +10,12 @@ export class Card extends Component {
     e.preventDefault();
     let updatedFavorites
     if (!favorited) {
+      
       this.props.addToFavorites(artist)
-      updatedFavorites = [...favorites, artist.id]
+      updatedFavorites = [...favorites, artist]
     } else if (favorited) {
       this.props.removeFromFavorites(artist)
-      updatedFavorites = favorites.filter(id => id !== artist.id)
+      updatedFavorites = favorites.filter(favorite => favorite.id !== artist.id)
     }
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
   }
@@ -35,11 +36,11 @@ export class Card extends Component {
           title={name}
           opts={opts}
         />
-        <a href={wiki} target='blank'>More Info</a>
+        <a href={wiki} target='blank'> <i class="fas fa-info-circle"></i>More Info</a>
         {
           favorited ?
-            <button onClick={this.handleFavorite}>Delete from favorites</button> :
-            <button onClick={this.handleFavorite}>Add to Favorites</button>
+            <button className='favorites' onClick={this.handleFavorite}><i class="fas fa-times-circle"></i>Remove from Favorites</button> :
+            <button className='favorites' onClick={this.handleFavorite}><i class="fas fa-plus-circle"></i>Add to Favorites</button>
         }
       </div>
     )
