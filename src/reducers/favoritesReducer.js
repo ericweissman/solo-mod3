@@ -1,12 +1,24 @@
 const favoritesReducer = (state = [], action) => {
   switch(action.type) {
     case 'ADD_TO_FAVORITES':
-      if(!state.includes(action.artist)) {
-        return [...state, action.artist.id]
+      const found = state.find((artist) => {
+        return artist.id === action.artist.id
+      })
+      if(!found) {
+        return [...state, action.artist]
+      } else {
+        return state
       }
     case 'REMOVE_FROM_FAVORITES':
-      const deleted = state.filter(id => id !== action.artist.id)
+      const deleted = state.filter(artist => artist.id !== action.artist.id)
       return deleted
+    // case 'ADD_TO_FAVORITES':
+    //   if(!state.includes(action.artist)) {
+    //     return [...state, action.artist.id]
+    //   }
+    // case 'REMOVE_FROM_FAVORITES':
+    //   const deleted = state.filter(id => id !== action.artist.id)
+    //   return deleted
     case 'POPULATE_FAVORITES':
       return action.artists
     default:
