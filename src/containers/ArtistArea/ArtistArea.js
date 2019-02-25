@@ -5,86 +5,51 @@ import { connect } from 'react-redux'
 import Card from '../../containers/Card/Card'
 import * as url from '../../utils/urls'
 import Loading from '../../components/Loading/Loading'
-import FavoritesInstructions from '../../components/FavoritesInstructions/FavoritesInstructions'
 const key = require('short-id')
 
 export class ArtistArea extends Component {
 
   getArtists = () => {
-    const { glitchHop, futureBass, trap, deepHouse } = this.props
+    const { glitchHop, futureBass, trap, deepHouse, favorites } = this.props
     switch (this.props.match.path) {
       case '/glitchHop':
         if (glitchHop.length === 0) {
-          this.props.fetchArtists(url.glitchHop, actions.getGlitchHopSuccess)
+          this.props.fetchArtists(url.glitchHop, actions.getGlitchHopSuccess, favorites)
         }
         return 'glitchHop'
       case '/deepHouse':
         if (deepHouse.length === 0) {
-          this.props.fetchArtists(url.deepHouse, actions.getDeepHouseSuccess)
+          this.props.fetchArtists(url.deepHouse, actions.getDeepHouseSuccess, favorites)
         }
         return 'deepHouse'
       case '/trap':
         if (trap.length === 0) {
-          this.props.fetchArtists(url.trap, actions.getTrapSuccess)
+          this.props.fetchArtists(url.trap, actions.getTrapSuccess, favorites)
         }
         return 'trap'
       case '/futureBass':
         if (futureBass.length === 0) {
-          this.props.fetchArtists(url.futureBass, actions.getFutureBassSuccess)
+          this.props.fetchArtists(url.futureBass, actions.getFutureBassSuccess, favorites)
         }
         return 'futureBass'
       case '/favorites':
-        this.fetchAllArtists()
         return 'favorites'
       default:
         return null
     }
   }
 
-  fetchAllArtists = () => {
-    const { glitchHop, futureBass, trap, deepHouse } = this.props
-    if (glitchHop.length === 0) {
-      this.props.fetchArtists(url.glitchHop, actions.getGlitchHopSuccess)
-    }
-    if (deepHouse.length === 0) {
-      this.props.fetchArtists(url.deepHouse, actions.getDeepHouseSuccess)
-    }
-    if (trap.length === 0) {
-      this.props.fetchArtists(url.trap, actions.getTrapSuccess)
-    }
-    if (futureBass.length === 0) {
-      this.props.fetchArtists(url.futureBass, actions.getFutureBassSuccess)
-    }
-  }
-
   cardsToDisplay = () => {
     const { glitchHop, futureBass, trap, deepHouse, favorites, isLoading } = this.props
     const genre = this.getArtists()
-    const allGenres = glitchHop.concat(deepHouse).concat(trap).concat(futureBass)
     let cards
 
-    if (isLoading) {
-      return <Loading />
-    }
-
-    switch (genre === 'favorites') {
-      // case favorites.length === 0:
-      //   return <FavoritesInstructions />
-      default:
-        cards = allGenres.map((artist) => {
-          if (favorites.includes(artist.id)) {
-            return <Card artist={artist} key={key.generate()} />
-          }
-        })
-    }
-
     cards = this.props[genre].map(artist => {
-      if (this.props.favorites.includes(artist.id)) {
-        artist.favorited = true
+      if (isLoading && genre !== 'favorites') {
+        return <Loading />
       }
       return <Card artist={artist} key={key.generate()} />
     })
-    
     return cards
   }
 
@@ -107,7 +72,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  fetchArtists: (url, actionToDispatch) => dispatch(fetchArtists(url, actionToDispatch))
+  fetchArtists: (url, actionToDispatch, favorites) => dispatch(fetchArtists(url, actionToDispatch, favorites))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistArea)
