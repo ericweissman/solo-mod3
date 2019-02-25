@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway:400');
 @import './variables';
 @import '../containers/Nav/Nav.scss';
 @import '../containers/App/App.scss';
+@import '../containers/Card/Card.scss';
+@import '../components/Error/Error.scss';
+@import '../components/Instructions/Instructions.scss';
+@import '../containers/ArtistArea/ArtistArea.scss';
 
 
 * {
