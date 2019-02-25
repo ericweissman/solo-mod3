@@ -1,16 +1,26 @@
 import { fetchArtists } from '../fetchArtists'
-import { isLoading, hasErrored,  fetchArtistsSuccess} from '../../actions'
+import { isLoading, hasErrored } from '../../actions'
 
 describe ('fetchArtists', () => {
   let mockURL
   let mockDispatch
   let mockActionToDispatch
+  const mockFavorites1 = [{ name: 'Eric', yID: '1', wUrl: 'aa' }]
+  let mockFavorites2 = []
+  const mockArtists = {
+    Similar: {
+      Results: [
+        { name: 'Eric', yID: '1', wUrl: 'aa' }
+      ]
+    }
+  }
 
   beforeEach(() => {
     mockURL = 'https://tastedive.com/api/similar?q=something'
     mockDispatch = jest.fn()
     mockActionToDispatch = jest.fn()
   })
+  
 
   it('calls dispatch with the isLoading action', () => {
     const thunk = fetchArtists(mockURL, mockActionToDispatch)
@@ -39,15 +49,27 @@ describe ('fetchArtists', () => {
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
 
-  it('calls dispatch with the correct actionToDispatch with results if the response is OK', async () => {
-    const mockArtists = [{name: 'PL'}]
+  it('calls dispatch with the correct actionToDispatch with results if the response is OK and there is matching favorite', async () => {
+    const mockCleaned = [{ name: 'Eric', yID: '1', wUrl: 'aa', favorited: true }]
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
       json: () => Promise.resolve(mockArtists)
     }))
 
-    const thunk = fetchArtists(mockURL, mockActionToDispatch)
+    const thunk = fetchArtists(mockURL, mockActionToDispatch, mockFavorites1)
     await thunk(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith(mockActionToDispatch(mockArtists))
+    expect(mockDispatch).toHaveBeenCalledWith(mockActionToDispatch(mockCleaned))
   })
+
+  it('calls dispatch with the correct actionToDispatch with results if the response is OK and there is no matching favorite', async () => {
+    const mockCleaned = [{ name: 'Eric', yID: '1cvs', wUrl: 'aa', favorited: false }]
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(mockArtists)
+    }))
+    const thunk = fetchArtists(mockURL, mockActionToDispatch, mockFavorites2)
+    await thunk(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(mockActionToDispatch(mockCleaned))
+  })
+
 })

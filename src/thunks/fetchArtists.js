@@ -1,7 +1,6 @@
 import {isLoading, hasErrored } from '../actions'
 
 export const fetchArtists = (url, actionToDispatch, favorites) => {
-  console.log(favorites)
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
