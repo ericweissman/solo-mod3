@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Error should match the correct snapshot 1`] = `
-<div>
+<div
+  className="error"
+>
   <h4>
     Dadgummit!
   </h4>
   <p>
-    Looks like the computer is on the fritz. Says here it's because: 
+    Looks like the computer is on the fritz. Says here it's because:
+  </p>
+  <p
+    className="error-message"
+  >
     404
     !
   </p>

@@ -19,7 +19,7 @@ const mockProps = {
   futureBass: [],
   glitchHop: [],
   trap: [],
-  hasErrored: false,
+  hasErrored: '',
   populateFavorites: jest.fn(),
 }
 
@@ -28,7 +28,7 @@ const withError = {
   futureBass: [],
   glitchHop: [],
   trap: [],
-  hasErrored: true,
+  hasErrored: 'Some error',
   populateFavorites: jest.fn(),
 }
 
@@ -41,7 +41,7 @@ describe('App', () => {
     ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <App {...mockProps}/>
         </BrowserRouter>
       </Provider>
       , div);
@@ -57,22 +57,31 @@ describe('App', () => {
       wrapper = shallow(<App {...withError} />)
       expect(wrapper).toMatchSnapshot()
     })
+
   })
-  
-  describe('Routes', () => {
-    it('should render Instructions with the home route', () => {
-      const wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={['/']}>
-            <App />
-          </MemoryRouter>
-        </Provider>
-      )
-      expect(wrapper.find(Instructions)).toHaveLength(1)
+
+  describe('getRouteForGenre', () => {
+    const mockPropsRoutes = {
+      match: {
+        path: '/glitchHop'
+      }
+    }
+
+    it('should display the glitchHop in Artist area based on path', () => {
+      wrapper = shallow(<App {...mockProps} />)
+      const result = wrapper.instance().getRouteForGenre(mockPropsRoutes)
+      const ghArtistArea = shallow(result)
+      expect(ghArtistArea).toMatchSnapshot()
     })
   })
 
-
+  describe('get from localstorage if there is favorites', () => {
+    wrapper = shallow(<App {...mockProps} />)
+    const favorites = [{name: 'JEOD', id:'aa11', wiki: 'sfaf', favorited: true}]
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+    wrapper.instance().componentDidMount()
+    expect(mockProps.populateFavorites).toHaveBeenCalled()
+  })
   describe('mapStateToProps', () => {
     it('should return the correct pieces of state', () => {
       const mockState = {

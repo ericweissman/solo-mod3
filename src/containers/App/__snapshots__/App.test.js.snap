@@ -1,13 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App getRouteForGenre should display the glitchHop in Artist area based on path 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
 exports[`App snapshots should have the correct snapshot when there is an error 1`] = `
 <Error
-  message={true}
+  message="Some error"
 />
 `;
 
 exports[`App snapshots should have the correct snapshot when there is no error 1`] = `
-<Error
-  message={false}
-/>
+<div
+  className="App"
+>
+  <Nav />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      path="/glitchHop"
+      render={[Function]}
+    />
+    <Route
+      path="/deepHouse"
+      render={[Function]}
+    />
+    <Route
+      path="/futureBass"
+      render={[Function]}
+    />
+    <Route
+      path="/trap"
+      render={[Function]}
+    />
+    <Route
+      path="/favorites"
+      render={[Function]}
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+</div>
 `;
