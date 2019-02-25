@@ -1,0 +1,28 @@
+.instructions {
+  margin-left: 250px;
+  padding-top: 100px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $secondary-font;
+  color: $color-accent-light;
+  text-align: center;
+
+  p {
+    padding: 15px 0;
+  }
+
+  h5 {
+    text-decoration: underline;
+  }
+
+  li {
+    text-align: left;
+  }
+  h3 {
+    font-family: $primary-font;
+    font-size: 40px;
+    color: $color-accent;
+  }
+}
