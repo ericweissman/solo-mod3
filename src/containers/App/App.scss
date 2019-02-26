@@ -1,4 +1,7 @@
 .App {
   background-color: $color-background-main;
   min-height: 850px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 10px;
 }
