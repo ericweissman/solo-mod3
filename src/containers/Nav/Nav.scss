@@ -5,8 +5,6 @@ nav {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  position: fixed;
-  z-index: 1;
   h1 {
     padding: 30px 0;
     font-size: 45px;
@@ -19,11 +17,12 @@ nav {
     
     .instructions-nav {
       animation: pulse 2s linear 0s infinite normal; 
+      color: $color-accent-light;
       animation-fill-mode: forwards;
       border-bottom: none;
       margin-bottom: 35px;
       &:hover {
-        color: white;
+        color: $text-white;
         transition: .9s ease-in;
       }
     }
@@ -33,7 +32,7 @@ nav {
     align-items: center;
 
     a {
-    color: $color-accent-light;
+    color: $text-white;
     width: 205px;
     font-size: 27px;
     padding: 15px 0;
