@@ -12,9 +12,7 @@ nav {
     font-family: $title-font;
     text-shadow: 3px 3px 3px black;
   }
-
   .nav-options {
-    
     .instructions-nav {
       animation: pulse 2s linear 0s infinite normal; 
       color: $color-accent-light;
@@ -26,11 +24,9 @@ nav {
         transition: .9s ease-in;
       }
     }
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-
     a {
     color: $text-white;
     width: 205px;
@@ -39,10 +35,7 @@ nav {
     border-bottom: 2px solid $color-main-dark;
     text-decoration: none;
     text-align: center;
-
     }
-
-
     a:nth-child(n+2) {
       &:hover {
         background-color: $color-accent-light;
@@ -51,7 +44,6 @@ nav {
         border: 1px solid transparent;
       }
     }
-
     a:nth-child(2) {
       border-top: 2px solid $color-main-dark;
       &:hover {
@@ -69,6 +61,40 @@ nav {
     }
     100% {
       transform: scale(1.0)
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  nav {
+    h1 {
+      padding: 15px 15px 5px 15px;
+    }
+    align-items: center;
+    .nav-options {
+      padding-left: 10px;
+      .instructions-nav { 
+        margin-bottom: 0;
+      }
+      white-space: nowrap;
+      overflow-x: auto;
+      flex-direction: row;
+      width: 100%;
+      a {
+        display: flex;
+        align-content: center;
+        width: auto;
+        font-size: 16px;
+        padding: 15px 5px;
+        border-bottom: 0;
+        align-items: center;
+      }
+      a:nth-child(2) {
+        border-top: 0;
+      }
+      a:nth-child(6) {
+        padding-right: 10px;
+      }
     }
   }
 }

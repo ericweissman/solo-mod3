@@ -5,3 +5,10 @@
   grid-template-columns: 200px 1fr;
   grid-gap: 10px;
 }
+
+@media only screen and (max-width: 560px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+}

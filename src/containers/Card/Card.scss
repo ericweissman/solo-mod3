@@ -8,28 +8,23 @@
   width: 300px;
   height: 335px;;
   background-color: $color-main;
-
-      &:hover {
-      animation: grow 0.5s ease 0s 1 normal;
-      animation-fill-mode: forwards;
-    }
-
   box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
-
+  &:hover {
+    animation: grow 0.5s ease 0s 1 normal;
+    animation-fill-mode: forwards;
+  }
   .video {
     border: 2px solid $color-background-main;    
   }
-
   h4 {
     font-family: $primary-font;
-    color: $color-accent;
+    color: $text-white;
     font-size: 25px;
     padding: 15px 0;
   }
   i {
     padding-right: 5px;
   }
-
   a {
     font-family: $secondary-font;
     color: $color-accent;
@@ -41,23 +36,20 @@
     text-decoration: none;
     margin: 15px 0;
     border-radius: 20px;
-
     &:hover {
       background-color: $color-accent;
       color: $color-main;
     }
   }
-
   button {
     @extend a;
     margin: 0 0 15px 0;
     border: none;
     outline: none;
   }
-
-  .favorites {
-    width: 140px;
-    margin: 0 0 15px 0;
+.favorites {
+  width: 140px;
+  margin: 0 0 15px 0;
   }
 }
 
@@ -67,5 +59,11 @@
   }
   100% {
     transform: scale(1.01)
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .card {
+    width: 285px;
   }
 }
