@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import YouTube from 'react-youtube';
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { addToFavorites, removeFromFavorites } from '../../actions'
 
 export class Card extends Component {
@@ -57,3 +58,14 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)
+
+Card.propTypes = {
+  favorites: PropTypes.array,
+  addToFavorites: PropTypes.func,
+  removeFromFavorites: PropTypes.func,
+}
+
+
+Card.defaultProps = {
+  favorites: [],
+}

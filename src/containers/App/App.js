@@ -6,7 +6,7 @@ import '../../styles/index.scss'
 import { populateFavorites } from '../../actions'
 import Instructions from '../../components/Instructions/Instructions'
 import NotFound from '../../components/NotFound/NotFound'
-import Error from '../../components/Error/Error'
+import ErrorMsg from '../../components/ErrorMsg/ErrorMsg'
 import Nav from '../Nav/Nav'
 import ArtistArea from '../ArtistArea/ArtistArea'
 
@@ -45,7 +45,7 @@ export class App extends Component {
         );
       default:
         return (
-          <Error message={hasErrored} />
+          <ErrorMsg message={hasErrored} />
         )
     }
   }
@@ -65,3 +65,20 @@ export const mapDispatchToProps = (dispatch) => ({
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+
+App.propTypes = {
+  deepHouse: PropTypes.array,
+  glitchHop: PropTypes.array,
+  trap: PropTypes.array,
+  futureBass: PropTypes.array,
+  hasErrored: PropTypes.string,
+  populateFavorites: PropTypes.func,
+}
+
+App.defaultProps = {
+  deepHouse: [],
+  glitchHop: [],
+  trap: [],
+  futureBass: [],
+  hasErrored: '',
+}

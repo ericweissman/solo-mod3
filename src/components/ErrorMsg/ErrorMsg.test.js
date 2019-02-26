@@ -1,12 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Error from '../Error/Error'
+import ErrorMsg from '../ErrorMsg/ErrorMsg'
 
-describe('Error', () => {
+describe('ErrorMsg', () => {
   let wrapper
   const mockMessage = '404'
   it('should match the correct snapshot', () => {
-    wrapper = shallow(<Error message={mockMessage}/>)
+    wrapper = shallow(<ErrorMsg message={mockMessage}/>)
     expect(wrapper).toMatchSnapshot()
   })
 })

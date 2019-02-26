@@ -6,6 +6,7 @@ import Card from '../../containers/Card/Card'
 import FavoritesInstructions from '../../components/FavoritesInstructions/FavoritesInstructions'
 import Loading from '../../components/Loading/Loading'
 import * as url from '../../utils/urls'
+import PropTypes from 'prop-types'
 const key = require('short-id')
 
 export class ArtistArea extends Component {
@@ -81,3 +82,21 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistArea)
+
+ArtistArea.propTypes = {
+  deepHouse: PropTypes.array,
+  glitchHop: PropTypes.array,
+  trap: PropTypes.array,
+  futureBass: PropTypes.array,
+  isLoading: PropTypes.bool,
+  favorites: PropTypes.array
+}
+
+ArtistArea.defaultProps = {
+  deepHouse: [],
+  glitchHop: [],
+  trap: [],
+  futureBass: [],
+  isLoading: false,
+  favorites: []
+}

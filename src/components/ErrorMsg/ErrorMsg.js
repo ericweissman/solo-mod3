@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
-const Error = (props) => {
+const ErrorMsg = (props) => {
   return (
     <div className='error'>
       <h4>Dadgummit!</h4>
@@ -10,4 +11,13 @@ const Error = (props) => {
   )
 }
 
-export default Error
+export default ErrorMsg
+
+ErrorMsg.propTypes = {
+  message: PropTypes.string
+}
+
+ErrorMsg.defaultProps = {
+  message: ''
+}
+
