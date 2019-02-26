@@ -1,28 +1,42 @@
 .instructions {
-  margin-left: 250px;
   padding-top: 100px;
-  padding-right: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: $secondary-font;
   color: $color-accent-light;
   text-align: center;
-
   p {
-    padding: 15px 0;
+    padding: 10px;
+    font-size: 20px;
+    color: $text-white;
+  }
+  .instructions-area {
+    display: flex;
+    div {
+      @extend .card;
+      width: 200px;
+      margin: 10px;
+      background-color: $color-main;
+      height: fit-content;
+      p {
+        padding: 0 10px 15px 10px;
+        color: $text-white;
+        font-size: 16px;
+      }
+    }
+
+    h5 {
+      text-decoration: underline;
+      font-size: 22px;
+      padding: 10px;
+    }
   }
 
-  h5 {
-    text-decoration: underline;
-  }
-
-  li {
-    text-align: left;
-  }
   h3 {
-    font-family: $primary-font;
-    font-size: 40px;
+    font-family: $title-font;
+    font-size: 35px;
     color: $color-accent;
+    padding: 15px;
   }
 }
