@@ -3,8 +3,9 @@ import * as actions from '../../actions'
 import { fetchArtists } from '../../thunks/fetchArtists'
 import { connect } from 'react-redux'
 import Card from '../../containers/Card/Card'
-import * as url from '../../utils/urls'
+import FavoritesInstructions from '../../components/FavoritesInstructions/FavoritesInstructions'
 import Loading from '../../components/Loading/Loading'
+import * as url from '../../utils/urls'
 const key = require('short-id')
 
 export class ArtistArea extends Component {
@@ -43,20 +44,24 @@ export class ArtistArea extends Component {
     const { glitchHop, futureBass, trap, deepHouse, favorites, isLoading } = this.props
     const genre = this.getArtists()
     let cards
-
     cards = this.props[genre].map(artist => {
-      if (isLoading && genre !== 'favorites') {
-        return <Loading />
-      }
       return <Card artist={artist} key={key.generate()} />
     })
     return cards
   }
 
   render() {
+    const { glitchHop, futureBass, trap, deepHouse, favorites, isLoading } = this.props
+    const genre = this.getArtists()
     return (
       <div class='artist-area'>
         {this.cardsToDisplay()}
+        {
+          (isLoading && genre !== 'favorites') && <Loading />
+        }
+        {
+          (!favorites.length && genre === 'favorites') && <FavoritesInstructions />
+        }
       </div>
     )
   }
