@@ -1,0 +1,11 @@
+.favoritesInstructions {
+  @extend .instructions;
+  h4 {
+    font-size: 35px;
+  }
+  p {
+    @extend .card;
+    height: 175px;
+    line-height: 25px;
+  }
+}
