@@ -13,7 +13,7 @@ exports[`ArtistArea snapshots should match the correct snapshot 1`] = `
         "wiki": "asfas",
       }
     }
-    key="af065c"
+    key="c1e51d"
   />
 </div>
 `;
@@ -31,7 +31,7 @@ exports[`ArtistArea snapshots should match the correct snapshot 2`] = `
         "wiki": "asfas",
       }
     }
-    key="b0afe4"
+    key="ab7d3d"
   />
 </div>
 `;
@@ -49,7 +49,7 @@ exports[`ArtistArea snapshots should match the correct snapshot 3`] = `
         "wiki": "asfas",
       }
     }
-    key="f0cfe1"
+    key="0393be"
   />
 </div>
 `;
@@ -67,7 +67,7 @@ exports[`ArtistArea snapshots should match the correct snapshot 4`] = `
         "wiki": "asfas",
       }
     }
-    key="db2b31"
+    key="8d024c"
   />
 </div>
 `;
@@ -78,7 +78,7 @@ exports[`ArtistArea snapshots should match the correct snapshot 5`] = `
 >
   <Connect(Card)
     artist="1234"
-    key="e3dea6"
+    key="2ade92"
   />
 </div>
 `;

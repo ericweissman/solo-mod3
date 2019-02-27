@@ -9,6 +9,7 @@ import NotFound from '../../components/NotFound/NotFound'
 import ErrorMsg from '../../components/ErrorMsg/ErrorMsg'
 import Nav from '../Nav/Nav'
 import ArtistArea from '../ArtistArea/ArtistArea'
+import Loading from '../../components/Loading/Loading';
 
 export class App extends Component {
 

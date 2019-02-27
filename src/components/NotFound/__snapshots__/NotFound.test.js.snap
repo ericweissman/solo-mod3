@@ -1,10 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotFound should match the correct snapshot 1`] = `
-<div>
+<div
+  className="not-found"
+>
   <h4>
-    Dagnabbit! This page doesn't exist!
+    Dagnabbit!
   </h4>
+  <p>
+    This page doesn't exist!
+  </p>
   <Link
     replace={false}
     to="/"
