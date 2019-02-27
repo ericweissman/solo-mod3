@@ -21,8 +21,18 @@ My goal was to make the app extremely easy to use and provide explicit instructi
 - Jest
 - Enzyme
 
+
+## Demo
+
+
 ## Screenshots
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/20710327/53062708-ea1fff80-347e-11e9-9144-fdd5fccf754b.gif)
+#### Desktop Views
+![desktop_instructions](https://user-images.githubusercontent.com/20710327/53455418-a16cc700-39e7-11e9-815e-c3417c016e4d.png)
+
+![desktop_artists](https://user-images.githubusercontent.com/20710327/53455434-b34e6a00-39e7-11e9-8dd3-c994332513bc.png)
+
+#### Mobile View
+![mobile](https://user-images.githubusercontent.com/20710327/53455460-c9f4c100-39e7-11e9-9033-a17fc58a9d76.png)
 
 ## Wireframes
 #### Desktop
